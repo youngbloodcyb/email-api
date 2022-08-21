@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-const port = 8000;
 
 const nodemailer = require('nodemailer');
 
@@ -37,6 +36,6 @@ app.get('/send', (req, res) => {
     run(recipient, subject, text, html).catch(err => console.log(err));
 });
 
-app.listen(port, () => {
-    console.log(`Running on port: ${port}`);
+app.listen(process.env.PORT || 8000, () => {
+    console.log('Server is running');
 });
